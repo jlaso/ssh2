@@ -1,5 +1,14 @@
+# phpstorm
+.idea
+
+# private data
 logs
 servers.ini
 commands.ini
+
+# composer stuff
 vendor
 composer.lock
+
+# vagrant
+utils
