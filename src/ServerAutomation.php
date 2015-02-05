@@ -1,7 +1,12 @@
 <?php
 
-
 namespace JLaso\Ssh2;
+
+/**
+ * Class ServerAutomation
+ * @package JLaso\Ssh2
+ * @author Joseluis Laso <jlaso@joseluislaso.es>
+ */
 
 class ServerAutomation
 {
@@ -9,10 +14,16 @@ class ServerAutomation
     const AUTH_SSH_KEY = 'ssh-key';
 
     protected $session = null;
-    
+
+    /**
+     * @param $server
+     * @param $port
+     * @param array $options
+     * @throws \Exception
+     */
     function __construct($server, $port, $options = array())
     {
-        $options = array_combine(
+        $options = array_merge(
             array(
                 'auth' => '',
                 'user' => '',
@@ -25,17 +36,24 @@ class ServerAutomation
         if($this->session){
             switch($options['auth']){
                 case self::AUTH_PASSWORD:
+                    ssh2_auth_password($this->session, $options['user'], $options['password']);
                     break;
 
                 case self::AUTH_SSH_KEY:
+                    ssh2_auth_pubkey_file($this->session, $options['user'], $options['ssh-key'].'.pub', $options['ssh-key']);
                     break;
 
                 default:
-                    throw new \Exception(sprintf('"%s" not recognized as an auth mode for ssh2', $options['auth']);
+                    throw new \Exception(sprintf('"%s" not recognized as an auth mode for ssh2', $options['auth']));
             }
         }
     }
-    
+
+    /**
+     * @param $command
+     * @return string
+     * @throws \Exception
+     */
     function exec($command)
     {
         if(!$this->session){

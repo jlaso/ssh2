@@ -1,3 +1,6 @@
+# OSX
+.DS_Store
+
 # phpstorm
 .idea
 
@@ -10,5 +13,7 @@ commands.ini
 vendor
 composer.lock
 
-# vagrant
-utils
+# vagrant & ansible
+.vagrant
+ansible/files/authorized_keys
+.ssh
