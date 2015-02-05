@@ -1,0 +1,12 @@
+[server1]
+ip="localhost"
+port="2222"
+auth="password"
+user="root"
+password="root"
+
+[server2]
+ip="192.168.0.1"
+port="22"
+sshkey="/home/user/.ssh/id_rsa"
+auth="ssh-key"

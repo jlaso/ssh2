@@ -1,0 +1,14 @@
+[1-create-tmp-dir]
+command="mkdir -p /tmp/cmd-auto"
+
+[2-install-composer]
+command="cd /tmp/cmd-auto && curl -sS https://getcomposer.org/installer > installer.php && php installer.php && chmod +x composer.phar"
+
+[3-create-composer-json]
+command="cd /tmp/cmd-auto && echo '{\"require\":{\"jlaso/ssh2\": \"dev-develop\"}}' > composer.json"
+
+[4-install]
+command='cd /tmp/cmd-auto && /tmp/cmd-auto/composer.phar install; done;)'
+
+[5-remove-tmp-dir]
+command="rm -rf /tmp/cmd-auto"
