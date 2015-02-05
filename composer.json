@@ -14,8 +14,7 @@
         }
     ],
     "require": {
-        "php": ">=5.3.0",
-        "ext-ssh2": "*"
+        "php": ">=5.3.0"
     },
     "autoload": {
         "psr-4": { "JLaso\\Ssh2\\": "src/" }
