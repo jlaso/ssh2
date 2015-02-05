@@ -3,7 +3,7 @@
     "version": "0.1",
     "type": "library",
     "description": "Automation tool for remote servers with pure PHP ssh2.",
-    "keywords": ["jlaso", "gps", "gps-tools"],
+    "keywords": ["jlaso", "ssh", "ssh2"],
     "homepage": "https://github.com/jlaso/ssh2.git",
     "license": "MIT",
     "authors": [
